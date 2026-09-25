@@ -1,0 +1,35 @@
+{
+  "snapshot": "2026.09.08",
+  "dinov2": {
+    "upstream": "https://github.com/facebookresearch/dinov2",
+    "commit": "592541c8d842042bb5ab29a49433f73b544522d5",
+    "model": "dinov2_vits14_reg",
+    "license": "Apache-2.0",
+    "weights_url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_reg4_pretrain.pth",
+    "local_changes": "subset of upstream files needed for torch.hub loading of dinov2_vits14_reg (hubconf.py, dinov2/hub, dinov2/layers, dinov2/models, LICENSE, MODEL_CARD.md); CRLF line endings; weights added; no semantic difference in included files"
+  },
+  "yolo": {
+    "model": "custom YOLO11n",
+    "classes": [
+      "brain"
+    ],
+    "ultralytics": "8.3.153",
+    "license": "AGPL-3.0-only",
+    "training_dataset_included": false
+  },
+  "atlas": {
+    "provider": "Allen Institute for Brain Science",
+    "source_portal": "https://brain-map.org/",
+    "terms": "https://alleninstitute.org/legal/terms-of-use",
+    "levels": 220,
+    "upstream_release": null,
+    "voxel_spacing": null,
+    "conversion_history": null,
+    "provenance_limit": "Legacy derived images; original release and conversion metadata not supplied"
+  },
+  "d55": {
+    "provider": "FastHisto project team",
+    "license": "CC-BY-4.0",
+    "structural_images": 174
+  }
+}

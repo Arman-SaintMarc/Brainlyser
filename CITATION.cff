@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use Brainlyser, please cite this software, the associated FastHisto article, and the third-party methods listed in README.md."
+type: software
+title: "Brainlyser: the FastHisto brain-image analysis software"
+authors:
+  - name: "Arman SAINT-MARC"
+  - name: "Maylis BOITET"
+version: "1.0.0"
+date-released: "2026-09-25"
+repository-code: "https://github.com/Arman-SaintMarc/Brainlyser"
+# Add once available:
+# doi: "10.5281/zenodo.<record>"
+abstract: "Brainlyser performs serial atlas-indexed 2D analysis of mouse-brain blockface fluorescence photographs: YOLO11 brain detection, DINOv2-based atlas-level assignment with manual review, 2D similarity registration, and regional reporter-signal quantification with an interactive dashboard."
+license: AGPL-3.0-only
+keywords:
+  - neuroscience
+  - mouse brain
+  - blockface imaging
+  - fluorescence imaging
+  - brain atlas
+  - image registration
+  - deep learning

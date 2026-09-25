@@ -1,0 +1,18 @@
+{
+  "system": "Darwin",
+  "architecture": "x86_64",
+  "python": "3.10.21",
+  "snapshot": "2026.09.08",
+  "packages": {
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "ultralytics": "8.3.153",
+    "opencv-python": "4.11.0.86",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.2",
+    "Pillow": "12.3.0",
+    "openpyxl": "3.1.5",
+    "xlrd": "2.0.2"
+  }
+}

@@ -1,0 +1,31 @@
+name: brainlyser
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  # Runtime
+  - python=3.10
+  - pip
+
+  # Numerical and image-processing stack
+  - numpy<2
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - pillow
+
+  # Desktop interface and CSV/XLS/XLSX support
+  - tk
+  - openpyxl
+  - xlrd
+
+  # Neural-network versions matching the validated Brainlyser build. Conda
+  # selects the platform-compatible CPU, CUDA, or macOS variant.
+  - pytorch=2.6
+  - torchvision=0.21
+
+  # The custom detector was trained/exported with this Ultralytics release.
+  - pip:
+      - ultralytics==8.3.153
+      - opencv-python==4.11.0.86

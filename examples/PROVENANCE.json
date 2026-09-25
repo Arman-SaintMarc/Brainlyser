@@ -1,0 +1,29 @@
+{
+  "specimen": "D55",
+  "provider": "FastHisto project team",
+  "license": "CC-BY-4.0",
+  "use": "installation demonstration; also used as reference, not an independent benchmark",
+  "input_files": [
+    {
+      "name": "DSC02560.JPG",
+      "source_directory": "20230320 D55",
+      "sha256": "d69a9948e9422e6b691fe227dc2e13b2420718f1c5c9bb64bb360a5fb7f013f5",
+      "bytes": 4358144,
+      "modifications": "none; copied without re-encoding"
+    },
+    {
+      "name": "DSC02561.JPG",
+      "source_directory": "20230320 D55",
+      "sha256": "f769038ed17604e1d390720359fe0750b1fddc3061792f1058af889ca052df0d",
+      "bytes": 4358144,
+      "modifications": "none; copied without re-encoding"
+    },
+    {
+      "name": "DSC02562.JPG",
+      "source_directory": "20230320 D55",
+      "sha256": "f0aaf732fabd5e964423e615881ce56185d83e6b062c036ed8dd9035c8255a4c",
+      "bytes": 4358144,
+      "modifications": "none; copied without re-encoding"
+    }
+  ]
+}

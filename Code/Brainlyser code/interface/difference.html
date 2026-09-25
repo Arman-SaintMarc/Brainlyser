@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference - Brainlyser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="js/plotly.js" charset="utf-8"></script>
+
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <a href="#" class="logo">
+                <i class="fas fa-layer-group logo-icon"></i>
+                <span class="logo-text">Brainlyser</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="brain.html">Brains</a></li>
+                <li><a href="comparaison.html">Comparaison</a></li>
+                <li><a href="difference.html" class="active">Difference</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            
+        </div>
+    </header>
+
+    <main class="comparison-container">
+        <div class="left-panel">
+            <div class="legend"></div>
+            <div class="image-container">
+                <img id="displayImage1" src="../assets/atlas/structure/slice0001.jpg" alt="Slice 0001" class="atlas-slice active" />
+                <img id="displayImage2" src="../assets/atlas/structure/slice0001.jpg" alt="Slice 0001" class="atlas-slice inactive" />
+
+                <img id="overlayMask" src="../assets/atlas/colored_mask/slice0001.png" alt="Slice 0001 - Mask" class="overlay-mask" />
+            </div>
+            <div class="slider-container">
+                <label for="sliceSlider">Atlas Slice: <span id="sliceNumberLabel">1</span> / 220</label>
+                <input type="range" id="sliceSlider" min="1" max="220" value="1" />
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <h2>Difference between Median Classes</h2>
+
+            <div class="comparison-controls">
+                 <div class="select-group">
+                     <label for="classSelectDiff1">Class 1:</label>
+                     <select id="classSelectDiff1">
+                         <option value="">-- Select Class 1 --</option>
+                     </select>
+                 </div>
+                 <div class="select-group">
+                     <label for="classSelectDiff2">Class 2:</label>
+                     <select id="classSelectDiff2">
+                         <option value="">-- Select Class 2 --</option>
+                     </select>
+                 </div>
+            </div>
+
+            <div id="differenceDisplayArea" class="difference-display-area">
+                <p>Select two different classes above to view the median difference.</p>
+                <img id="differenceImage" class="difference-image" src="" alt="Difference Image" style="display: none;" />
+                <img id="differenceOutline" class="difference-outline" src="" alt="Slice outline" style="display:none;" />
+                 <p id="differenceMessage" class="error-message" style="display: none;"></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/last_path.js"></script>
+
+    <script>
+  
+        function loadScript(src, callback) {
+        var script = document.createElement("script");
+        script.src = src;
+        script.onload = function () {
+            console.log(src + " loaded.");
+            if (callback) callback();
+        };
+        script.onerror = function () {
+            console.error("Error loading " + src);
+        };
+        document.head.appendChild(script);
+        }
+  
+        loadScript(lastPath + "/brain_slice_data.js", function () {
+            loadScript("js/difference.js");
+        });
+    </script>
+    <script>
+        const areaColors = {
+          OLF: "#00008b", // Olfactory areas
+          CNU: "#0000ff", // Cerebral nuclei
+          TH: "#add8e6", // Thalamus
+          CB: "#00ff00", // Cerebellum
+          ICTX: "#FFFF00", // Isocortex (neocortex)
+          MB: "#ffa500", // Midbrain
+          HY: "#ff0000", // Hypothalamus
+          HPF: "#ff69b4", // Hippocampal formation
+          HB: "#ffffff", // Hindbrain
+        };
+    
+        const areaNames = {
+          OLF: "Olfactory areas",
+          CNU: "Cerebral nuclei",
+          TH: "Thalamus",
+          CB: "Cerebellum",
+          ICTX: "Isocortex",
+          MB: "Midbrain",
+          HY: "Hypothalamus",
+          HPF: "Hippocampal formation",
+          HB: "Hindbrain",
+        };
+    
+        function buildLegend() {
+          const legend = document.querySelector(".legend");
+          if (!legend) return;
+    
+          Object.entries(areaColors).forEach(([abbr, color]) => {
+            const item = document.createElement("div");
+            item.className = "legend-item";
+    
+            const swatch = document.createElement("span");
+            swatch.className = "legend-color";
+            swatch.style.backgroundColor = color;
+    
+            const label = document.createElement("span");
+            label.textContent = areaNames[abbr] || abbr;
+    
+            item.appendChild(swatch);
+            item.appendChild(label);
+            legend.appendChild(item);
+          });
+        }
+    
+        document.addEventListener("DOMContentLoaded", buildLegend);
+      </script>
+</body>
+</html>

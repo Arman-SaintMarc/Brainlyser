@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Brainlyser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="js/plotly.js" charset="utf-8"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <a href="#" class="logo">
+                <i class="fas fa-layer-group logo-icon"></i>
+                <span class="logo-text">Brainlyser</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="brain.html">Brains</a></li>
+                <li><a href="comparaison.html">Comparaison</a></li>
+                <li><a href="difference.html">Difference</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            
+        </div>
+    </header>
+
+    <main class="dashboard-content">
+
+        <section class="dashboard-section summary-stats-section">
+            <h2>Summary</h2>
+            <div class="summary-stats" id="summaryStatsContainer">
+                <div class="stat-card"> <span class="stat-value" id="totalClasses">--</span> <span class="stat-label">Unique Classes</span> </div>
+                <div class="stat-card"> <span class="stat-value" id="totalBrains">--</span> <span class="stat-label">Total Brains</span> </div>
+                <div class="stat-card"> <span class="stat-value" id="totalSlices">--</span> <span class="stat-label">Total Slices Processed</span> </div>
+            </div>
+             <p id="summaryError" class="error-message" style="display: none;"></p>
+        </section>
+
+        <div class="plots-row">
+            <section class="dashboard-section histogram-section">
+                <h2>Class Distribution</h2>
+                <div class="plotly-container plotly-histogram-container"> <div id="plotlyClassHistogram"></div> <p id="distributionError" class="error-message" style="display: none;"></p> </div>
+            </section>
+            <section class="dashboard-section scatter-section">
+                 <h2>Outlier detection</h2>
+                 <div class="plotly-container plotly-scatter-container"> <div id="plotlyRegionScatter"></div> <p id="scatterError" class="error-message" style="display: none;"></p> </div>
+            </section>
+        </div>
+
+        <div class="heatmaps-row">
+            <div class="heatmap-controls">
+                <input type="checkbox" id="smoothToggle">
+                <label for="smoothToggle">Fill gaps in heatmap</label>
+            </div>
+            <div class="heatmap-plots-container">
+                <section class="dashboard-section heatmap-section-f">
+                    <h2 id="heatmapTitleF">Reporter Difference</h2>
+                    <div class="plotly-container plotly-heatmap-container-f"> <div id="plotlyHeatmapF"></div> <p id="heatmapErrorF" class="error-message" style="display: none;"></p> </div>
+                </section>
+                <section class="dashboard-section heatmap-section-m">
+                    <h2 id="heatmapTitleM">Reporter Difference</h2>
+                    <div class="plotly-container plotly-heatmap-container-m"> <div id="plotlyHeatmapM"></div> <p id="heatmapErrorM" class="error-message" style="display: none;"></p> </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/last_path.js"></script>
+
+    <script>
+        function loadScript(src, callback) {
+        var script = document.createElement("script");
+        script.src = src;
+        script.onload = function () {
+            console.log(src + " loaded.");
+            if (callback) callback();
+        };
+        script.onerror = function () {
+            console.error("Error loading " + src);
+        };
+        document.head.appendChild(script);
+        }
+  
+        loadScript(lastPath + "/brain_slice_data.js", function () {
+            loadScript("js/dashboard.js");
+        });
+    </script>
+
+</body>
+</html>

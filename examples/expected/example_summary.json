@@ -1,0 +1,15 @@
+{
+  "example": "D55 three-image inference demonstration",
+  "processed_images": 3,
+  "quantified_slices": 3,
+  "region_entries": 12,
+  "assignments": {
+    "D55": {
+      "slice0000.jpg": "slice0069.jpg",
+      "slice0001.jpg": "slice0070.jpg",
+      "slice0002.jpg": "slice0071.jpg"
+    }
+  },
+  "elapsed_seconds": 29.73,
+  "review": "automatic assignments accepted for installation testing only"
+}

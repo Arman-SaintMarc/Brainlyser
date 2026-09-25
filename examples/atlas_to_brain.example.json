@@ -1,0 +1,12 @@
+{
+  "brain_001": {
+    "slice0000.jpg": "slice0005.jpg",
+    "slice0001.jpg": "slice0006.jpg",
+    "slice0002.jpg": "slice0007.jpg"
+  },
+  "brain_002": {
+    "slice0000.jpg": "slice0005.jpg",
+    "slice0001.jpg": "slice0006.jpg",
+    "slice0002.jpg": "slice0007.jpg"
+  }
+}

@@ -1,0 +1,25 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Analysis results (created at each run)
+Code/Brainlyser code/data/
+
+# Paper datasets: distributed as Brainlyser-dataset-AD.zip / -JEV.zip
+/Datasets/
+
+# PyInstaller build products
+Code/Brainlyser code/build/
+Code/Brainlyser code/dist/
+
+# Archives
+*.zip
