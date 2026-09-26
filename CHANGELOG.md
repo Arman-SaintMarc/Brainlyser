@@ -4,14 +4,14 @@
 
 - Code identical to source snapshot 2026.09.24 below.
 - The GitHub repository contains the complete software, including the YOLO
-  detector, DINOv2 code and weights, atlas and D55 reference; the AD and JEV
-  datasets are distributed as two separate archives. Added
+  detector, DINOv2 code and weights, atlas and D55 reference; the Alzheimer (AD)
+  dataset is distributed as a separate archive (Proton Drive). Added
   `ASSETS_CHECKSUMS.sha256`.
 - Reduced the bundled DINOv2 repository to the files needed to load the
   ViT-S/14-reg4 backbone (175 → 26 files).
-- Rewrote the README (installation, example, paper datasets, outputs,
+- Rewrote the README (installation, example, paper dataset, outputs,
   method, licences, citation, troubleshooting); added `docs/DATASETS.md`;
-  extended the CC BY 4.0 data licence to the AD and JEV datasets; updated
+  extended the CC BY 4.0 data licence to the AD dataset; updated
   third-party notices and `CITATION.cff`.
 
 ## Source snapshot 2026.09.24

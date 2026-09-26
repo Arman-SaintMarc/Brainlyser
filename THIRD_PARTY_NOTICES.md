@@ -1,7 +1,7 @@
 # Third-party notices and redistribution
 
 Applies to Brainlyser 1.0.0 (source snapshot 2026.09.24) and its separately
-distributed dataset archives. Each component retains its
+distributed Alzheimer (AD) dataset archive. Each component retains its
 own copyright and licence. A software licence does not relicense adjacent
 research data.
 
@@ -82,18 +82,18 @@ Governing documents:
 [Citation Policy](https://alleninstitute.org/legal/citation-policy).
 Questions outside those terms may be addressed to `terms@alleninstitute.org`.
 
-## FastHisto image data (D55 reference, example, AD and JEV datasets)
+## FastHisto image data (D55 reference, example, AD dataset)
 
-The D55 reference stack, the three example photographs, and the AD and JEV
-datasets belong to the FastHisto project team and are distributed under
+The D55 reference stack, the three example photographs, and the Alzheimer (AD)
+dataset belong to the FastHisto project team and are distributed under
 CC BY 4.0; the scope and attribution are in
-[licenses/DATA-LICENSE.md](licenses/DATA-LICENSE.md). The AD and JEV datasets
-are not part of the Git repository; they are distributed as separate archives
+[licenses/DATA-LICENSE.md](licenses/DATA-LICENSE.md). The AD dataset is not
+part of the Git repository; it is distributed as a separate archive
 (see [docs/DATASETS.md](docs/DATASETS.md)).
 
 ## Where each component is distributed
 
-| Component | GitHub repository | Dataset ZIPs |
+| Component | GitHub repository | AD dataset ZIP |
 |---|---|---|
 | Brainlyser code, dashboard, docs (AGPL-3.0) | yes | — |
 | YOLO detector `best.pt` (AGPL-3.0) | yes | — |
@@ -102,7 +102,7 @@ are not part of the Git repository; they are distributed as separate archives
 | Allen-derived atlas (Allen terms) | yes | — |
 | D55 reference stack (CC BY 4.0) | yes | — |
 | D55 example photographs (CC BY 4.0) | yes | — |
-| AD and JEV datasets (CC BY 4.0) | — | yes |
+| AD dataset (CC BY 4.0) | — | yes |
 
 ## Plotly, dashboard resources, and Python dependencies
 

@@ -7,15 +7,14 @@ Creative Commons Attribution 4.0 International licence (CC BY 4.0):
 |---|---|---|
 | D55 reference stack (174 structural and 174 reporter images) | `Code/Brainlyser code/assets/20230320 D55/` | GitHub repository |
 | Three D55 demonstration photographs | `examples/raw/D55/` | GitHub repository |
-| AD dataset (39 specimens) and its class table | `Datasets/raw_data_AD/`, `Datasets/AD vs CT.csv` | `Brainlyser-dataset-AD.zip` |
-| JEV dataset (22 specimens) and its class table | `Datasets/raw data JEV/`, `Datasets/JEVvs CT.csv` | `Brainlyser-dataset-JEV.zip` |
+| Alzheimer (AD) dataset (39 specimens) and its class table | `raw_data_AD/`, `AD vs CT.csv` | `Dataset Alzheimer.zip` ([download](https://drive.proton.me/urls/WHDT0T9W84#4lpTiiRHADI6)) |
 
 You may copy, redistribute and adapt these data, including commercially,
 provided you give appropriate credit, provide a link to the licence, and
 indicate if changes were made.
 
 Suggested attribution: **FastHisto project team, Brainlyser blockface image
-data (D55 reference, AD and JEV datasets), version 1.0.0, CC BY 4.0.**
+data (D55 reference and Alzheimer dataset), version 1.0.0, CC BY 4.0.**
 Please also cite the FastHisto article. No endorsement or warranty is implied.
 
 Full legal terms: [CC-BY-4.0.txt](CC-BY-4.0.txt) and

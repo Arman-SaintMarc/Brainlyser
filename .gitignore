@@ -14,7 +14,7 @@ venv/
 # Analysis results (created at each run)
 Code/Brainlyser code/data/
 
-# Paper datasets: distributed as Brainlyser-dataset-AD.zip / -JEV.zip
+# Alzheimer dataset: distributed separately as "Dataset Alzheimer.zip"
 /Datasets/
 
 # PyInstaller build products

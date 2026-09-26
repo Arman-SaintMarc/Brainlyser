@@ -46,11 +46,12 @@ reconstruction. It is research software, not a clinical diagnostic tool.
 | Part | Where | Size | Contents |
 |---|---|---|---|
 | **Software** | this GitHub repository | ≈ 200 MB | Python application, dashboard, Conda environment, YOLO detector (`best.pt`), DINOv2 code and weights, 220-level atlas, D55 reference stack, 3-image example with expected outputs, tests, documentation, licences |
-| **Paper datasets** *(optional)* | `Brainlyser-dataset-AD.zip` and `Brainlyser-dataset-JEV.zip`, in the data archive cited in the paper | ≈ 18 GB and ≈ 10 GB | The complete raw photograph series and class tables analysed in the paper |
+| **Alzheimer (AD) dataset** *(optional)* | `Dataset Alzheimer.zip`, [download from Proton Drive](https://drive.proton.me/urls/WHDT0T9W84#4lpTiiRHADI6) | 18.6 GB | The complete raw photograph series (39 brains) and class table analysed in the paper |
 
 The repository alone is enough to install and run Brainlyser: every model and
-reference file is included. The datasets are only needed to reproduce the
-analyses of the paper; they are extracted into the repository root:
+reference file is included. The dataset is only needed to reproduce the
+analyses of the paper; it is extracted into a `Datasets/` folder at the
+repository root:
 
 ```text
 Brainlyser/                              ← root of this repository
@@ -62,9 +63,9 @@ Brainlyser/                              ← root of this repository
 │       ├── atlas/                       220-level atlas
 │       ├── 20230320 D55/                D55 reference stack
 │       └── ui/                          interface icons
-└── Datasets/                            ← dataset ZIPs (optional)
-    ├── raw_data_AD/     + AD vs CT.csv
-    └── raw data JEV/    + JEVvs CT.csv
+└── Datasets/                            ← AD dataset (optional)
+    ├── raw_data_AD/
+    └── AD vs CT.csv
 ```
 
 The integrity of the model and reference files can be checked from the
@@ -167,26 +168,27 @@ installation, not the accuracy of the method. See [examples/README.md](examples/
 
 ## Reproducing the analyses of the paper
 
-The two complete datasets of the paper are distributed separately as ZIP archives.
-Their content and provenance are described in [docs/DATASETS.md](docs/DATASETS.md).
+The complete Alzheimer (AD) dataset of the paper is distributed separately:
+**[`Dataset Alzheimer.zip`](https://drive.proton.me/urls/WHDT0T9W84#4lpTiiRHADI6)** (18.6 GB). Its content, checksum and
+provenance are described in [docs/DATASETS.md](docs/DATASETS.md).
 
-| Archive | Experiment | Specimens | Photographs | Class table |
-|---|---|---|---|---|
-| `Brainlyser-dataset-AD.zip` | Alzheimer's-disease model (AD) vs control (CT), females and males | 39 | 4 257 | `AD vs CT.csv` (classes `AD-F`, `AD-M`, `CT-F`, `CT-M`) |
-| `Brainlyser-dataset-JEV.zip` | Japanese encephalitis virus (JEV) infection at three doses vs control | 22 | 2 804 | `JEVvs CT.csv` (classes `Group1-CTRL`, `Group 2`, `Group 4`, `Group 5`) |
+| Experiment | Specimens | Photographs | Class table |
+|---|---|---|---|
+| Alzheimer's-disease model (AD) vs control (CT), females and males | 39 | 4 257 | `AD vs CT.csv` (classes `AD-F`, `AD-M`, `CT-F`, `CT-M`) |
 
-1. Extract the archive(s) into the repository root, producing
-   `Brainlyser/Datasets/`.
-2. Start `python index.py` and select:
+1. Download the archive and extract it into `Brainlyser/Datasets/`
+   (from the repository root):
 
-   | Dataset | Data Folder | Brain class |
-   |---|---|---|
-   | AD | `Datasets/raw_data_AD/` | `Datasets/AD vs CT.csv` |
-   | JEV | `Datasets/raw data JEV/` | `Datasets/JEVvs CT.csv` |
+   ```bash
+   mkdir -p Datasets
+   unzip "/path/to/Dataset Alzheimer.zip" -d Datasets -x "__MACOSX/*"
+   ```
 
+2. Start `python index.py` and select `Datasets/raw_data_AD/` as **Data
+   Folder** and `Datasets/AD vs CT.csv` as **Brain class**.
 3. Review the assignments of each specimen in Brain Comparator, then close it.
 
-A full dataset (about 70–110 photographs per specimen) can take several hours
+The full dataset (about 110 photographs per specimen) can take several hours
 on a CPU; a CUDA GPU shortens detection and assignment.
 
 A non-interactive run of the AD dataset (automatic assignments, no manual
@@ -353,7 +355,7 @@ python scripts/audit_outputs.py "Code/Brainlyser code/data/<run folder>"   # con
 ```
 
 Additional scripts in `scripts/`: `validate_gui.py` (full GUI pipeline on the
-example), `validate_ad_ct.py` (full AD dataset, needs the AD dataset ZIP),
+example), `validate_ad_ct.py` (full AD dataset, needs the AD dataset),
 `validate_macos_dialogs.py` (macOS file dialogs), `validate_dashboard.cjs`
 (browser test; needs Node.js and Playwright). What was validated and how is
 recorded in [docs/VALIDATION.md](docs/VALIDATION.md).
@@ -373,7 +375,7 @@ Brainlyser/
 ├── ASSETS_CHECKSUMS.sha256    SHA-256 of every file in Code/Brainlyser code/assets/
 ├── RUNTIME_PROVENANCE.json    provenance of models, atlas and reference
 ├── licenses/                  full licence texts; data licence
-├── docs/                      datasets, validation record, tested environment
+├── docs/                      AD dataset, validation record, tested environment
 ├── examples/                  3-image D55 example + expected outputs
 ├── tests/                     unit / regression tests
 ├── scripts/                   validation and audit scripts
@@ -405,7 +407,7 @@ Each component keeps its own licence. In short:
 | Ultralytics YOLO (installed dependency) | AGPL-3.0 |
 | DINOv2 code and weights (`assets/dinov2_repo/`) | Apache-2.0 ([licenses/Apache-2.0-DINOv2.txt](licenses/Apache-2.0-DINOv2.txt)) |
 | Atlas images and masks (`assets/atlas/`) | Allen Institute [Terms of Use](https://alleninstitute.org/legal/terms-of-use) — research / non-commercial redistribution; commercial redistribution needs Allen's permission |
-| D55 reference, example photographs, AD and JEV datasets | **CC BY 4.0** ([licenses/DATA-LICENSE.md](licenses/DATA-LICENSE.md)) |
+| D55 reference, example photographs, AD dataset | **CC BY 4.0** ([licenses/DATA-LICENSE.md](licenses/DATA-LICENSE.md)) |
 | Plotly.js (bundled in the dashboard) | MIT ([licenses/MIT-Plotly.txt](licenses/MIT-Plotly.txt)) |
 | Other Python dependencies | Their own licences; installed by Conda/pip, not redistributed here |
 
@@ -425,8 +427,8 @@ If you use Brainlyser, please cite:
    brain-image analysis software*, version 1.0.0 (2026). See
    [CITATION.cff](CITATION.cff); GitHub's "Cite this repository" button
    uses it.
-3. **The datasets**, if you reuse them: FastHisto project team, *Brainlyser
-   AD and JEV blockface datasets* (see [docs/DATASETS.md](docs/DATASETS.md)).
+3. **The dataset**, if you reuse it: FastHisto project team, *Brainlyser
+   Alzheimer (AD) blockface dataset* (see [docs/DATASETS.md](docs/DATASETS.md)).
 
 and the methods Brainlyser builds on:
 
